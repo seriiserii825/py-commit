@@ -14,6 +14,7 @@ OPTIONS:
 """
 
 choice = input("What would you like to do? (s/l): ")
+## check for valid choice
 if choice == 's':
     modified_files = getModifiedFiles()
     print(f"modified_files: {modified_files}")
