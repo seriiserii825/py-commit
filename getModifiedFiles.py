@@ -1,4 +1,6 @@
 import subprocess
+
+
 def getModifiedFiles():
     # Get the modified files in the current branch
     modified_files = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD'])

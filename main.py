@@ -1,7 +1,7 @@
 import os
+
 from getModifiedFiles import getModifiedFiles
 from getModifiedFilesFromCommit import getModifiedFilesFromCommit
-
 
 help = """
 Usage: $0 OPTIONS

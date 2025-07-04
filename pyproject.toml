@@ -8,17 +8,40 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.10,<4.0"
 dependencies = [
-    "autopep8==2.3.2",
-    "flake8==7.2.0",
     "gitpython>=3.1.44",
     "mccabe==0.7.0",
-    "mypy==1.16.0",
     "mypy-extensions==1.1.0",
     "pathspec==0.12.1",
     "pycodestyle==2.13.0",
     "pyflakes==3.3.2",
     "pyfzf>=0.3.1",
+    "ruff>=0.12.2",
     "typing-extensions==4.14.0",
 ]
 
 
+[tool.ruff]
+line-length = 88
+exclude = [
+    "migrations",
+    "tests",
+    "docs",
+    "build",
+    "dist",
+    "venv",
+    ".venv",
+    ".git",
+    "__pycache__",
+]
+fix = true
+target-version = "py312"  # <- specify Python 3.12 explicitly here
+
+[tool.ruff.lint]
+select = [
+    "F401",  # Unused import
+    "F403",  # Wildcard import
+    "F405",  # Name may be undefined, or defined from star imports
+    "F841",  # Local variable is assigned to but never used
+    "E501",  # Line too long
+    "I",     # Import sorting (isort-compatible)
+]
