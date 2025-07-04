@@ -16,12 +16,12 @@ OPTIONS:
 choice = input("What would you like to do, open modified or form a commit? (s/l): ")
 # check for valid choice
 
-if choice == 's':
+if choice == "s":
     modified_files = getModifiedFiles()
     print(f"modified_files: {modified_files}")
     # nvim open files
     os.system(f"nvim {' '.join(modified_files)}")
-elif choice == 'l':
+elif choice == "l":
     modified_files = getModifiedFilesFromCommit()
     print(f"modified_files: {modified_files}")
     # nvim open files
