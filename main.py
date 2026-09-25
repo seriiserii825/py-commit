@@ -34,8 +34,9 @@ try:
     else:
         parser.print_help()
         sys.exit(1)
-except subprocess.CalledProcessError:
-    # git already printed its error (e.g. not a git repository)
+except RuntimeError as err:
+    # git failed (e.g. not a git repository)
+    print(err, file=sys.stderr)
     sys.exit(1)
 
 # git returns paths relative to the repo root, so make them absolute

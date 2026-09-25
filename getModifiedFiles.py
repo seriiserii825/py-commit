@@ -1,15 +1,10 @@
-import subprocess
+from py_libs.Command import Command
 
 
 def getRepoRoot():
-    return subprocess.check_output(
-        ["git", "rev-parse", "--show-toplevel"], universal_newlines=True
-    ).strip()
+    return Command.run_quiet("git rev-parse --show-toplevel")
 
 
 def getModifiedFiles():
     # Get the modified tracked files (staged and unstaged) relative to HEAD
-    modified_files = subprocess.check_output(
-        ["git", "diff", "--name-only", "HEAD"], universal_newlines=True
-    )
-    return modified_files.splitlines()
+    return Command.run_quiet("git diff --name-only HEAD").splitlines()
